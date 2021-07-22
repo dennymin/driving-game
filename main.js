@@ -12,19 +12,6 @@ function turnCarDirection(car, className) {
 }
 
 function moveForward() {
-  // if (data.direction === 'ArrowDown') {
-  //   $car.style.top = data.y + 'px';
-  //   data.y++;
-  // } else if (data.direction === 'ArrowUp') {
-  //   $car.style.top = data.y + 'px';
-  //   data.y--;
-  // } else if (data.direction === 'ArrowRight') {
-  //   $car.style.left = data.x + 'px';
-  //   data.x++;
-  // } else if (data.direction === 'ArrowLeft') {
-  //   $car.style.left = data.x + 'px';
-  //   data.x--;
-  // }
   $car.style.left = data.x + 'px';
   data.x++;
 }
