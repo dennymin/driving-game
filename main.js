@@ -1,26 +1,17 @@
 var $car = document.querySelector('.car>img');
-function turnCarUp(car) {
-  car.className = 'face-up';
-}
-function turnCarDown(car) {
-  car.className = 'face-down';
-}
-function turnCarRight(car) {
-  car.className = 'face-right';
-}
-function turnCarLeft(car) {
-  car.className = 'face-left';
+function turnCarDirection(car, className) {
+  car.className = className;
 }
 
 function turnCar(event) {
   if (event.key === 'ArrowUp') {
-    turnCarUp($car);
+    turnCarDirection($car, 'face-up');
   } else if (event.key === 'ArrowDown') {
-    turnCarDown($car);
+    turnCarDirection($car, 'face-down');
   } else if (event.key === 'ArrowRight') {
-    turnCarRight($car);
+    turnCarDirection($car, 'face-right');
   } else if (event.key === 'ArrowLeft') {
-    turnCarLeft($car);
+    turnCarDirection($car, 'face-left');
   }
 }
 document.addEventListener('keydown', turnCar);
