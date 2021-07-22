@@ -13,15 +13,26 @@ function turnCarDirection(car, className) {
 }
 
 function moveForward() {
-  $car.style.left = data.x + 'px';
-  data.x++;
+  if (data.direction === 'ArrowDown') {
+    $car.style.top = data.y + 'px';
+    data.y++;
+  } else if (data.direction === 'ArrowUp') {
+    $car.style.top = data.y + 'px';
+    data.y--;
+  } else if (data.direction === 'ArrowRight') {
+    $car.style.left = data.x + 'px';
+    data.x++;
+  } else if (data.direction === 'ArrowLeft') {
+    $car.style.left = data.x + 'px';
+    data.x--;
+  }
 }
 
 var driving = null;
 function turnCarOnOrOff() {
   if (data.moving === false) {
     data.moving = true;
-    driving = setInterval(moveForward, 16);
+    driving = setInterval(moveForward, 0);
   } else {
     data.moving = false;
     clearInterval(driving);
