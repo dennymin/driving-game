@@ -2,7 +2,8 @@
 var data = {
   x: 0,
   y: 0,
-  direction: 'ArrowRight'
+  direction: 'ArrowRight',
+  moving: false
 };
 
 var $car = document.querySelector('.car');
@@ -16,6 +17,17 @@ function moveForward() {
   data.x++;
 }
 
+var driving = null;
+function turnCarOnOrOff() {
+  if (data.moving === false) {
+    data.moving = true;
+    driving = setInterval(moveForward, 16);
+  } else {
+    data.moving = false;
+    clearInterval(driving);
+  }
+}
+
 function turnCar(event) {
   if (event.code === 'ArrowUp') {
     turnCarDirection($car, 'face-up');
@@ -26,7 +38,7 @@ function turnCar(event) {
   } else if (event.code === 'ArrowLeft') {
     turnCarDirection($car, 'face-left');
   } else if (event.code === 'Space') {
-    setInterval(moveForward);
+    turnCarOnOrOff();
   }
 }
 document.addEventListener('keydown', turnCar);
