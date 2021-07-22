@@ -2,9 +2,10 @@ body {
   background-color: green;
 }
 
-.car > img {
+.car {
   width: 100px;
   height: 100px;
+  position: absolute;
 }
 
 .face-up {
